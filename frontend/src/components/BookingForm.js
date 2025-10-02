@@ -174,6 +174,7 @@ const BookingForm = ({ showHeader = true }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form submitted with data:', formData);
+    console.log('isLoading state:', isLoading);
     
     if (!validateForm()) {
       console.log('Form validation failed');
@@ -597,6 +598,7 @@ const BookingForm = ({ showHeader = true }) => {
               type="submit"
               className="submit-btn"
               disabled={isLoading}
+              onClick={() => console.log('Submit button clicked')}
             >
               {isLoading ? t('form.loading') : t('form.submit')}
             </button>
