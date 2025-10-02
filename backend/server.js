@@ -6,7 +6,20 @@ const connectDB = require('./config/database');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-connectDB();
+// 添加健康检查端点，不依赖数据库
+app.get('/health', (req, res) => {
+    res.json({
+        status: 'ok',
+        timestamp: new Date().toISOString(),
+        uptime: process.uptime()
+    });
+});
+
+// 尝试连接数据库，但不阻塞服务器启动
+connectDB().catch(err => {
+    console.error('Database connection failed:', err.message);
+    console.log('Server will continue without database connection');
+});
 
 app.use(cors());
 app.use(express.json());

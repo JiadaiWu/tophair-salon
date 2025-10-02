@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const Appointment = require('../models/Appointment');
 const { sendBookingNotification, sendCancellationNotification } = require('../utils/emailService');
 
@@ -7,6 +8,15 @@ const { sendBookingNotification, sendCancellationNotification } = require('../ut
 router.post('/book', async (req, res) => {
     try {
         console.log('Received booking request:', req.body);
+        
+        // 检查数据库连接状态
+        if (mongoose.connection.readyState !== 1) {
+            return res.status(503).json({
+                success: false,
+                message: 'Database connection not available. Please try again later.',
+                error: 'Database not connected'
+            });
+        }
         
         const appointment = new Appointment(req.body);
         await appointment.save();
