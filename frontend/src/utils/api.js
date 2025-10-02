@@ -15,6 +15,9 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     console.log('Making API request to:', config.baseURL + config.url);
+    console.log('Request method:', config.method);
+    console.log('Request data:', config.data);
+    console.log('Request headers:', config.headers);
     // Can add authentication token here
     return config;
   },

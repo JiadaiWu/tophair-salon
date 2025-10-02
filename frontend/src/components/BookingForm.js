@@ -173,11 +173,14 @@ const BookingForm = ({ showHeader = true }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Form submitted with data:', formData);
     
     if (!validateForm()) {
+      console.log('Form validation failed');
       return;
     }
 
+    console.log('Form validation passed, starting API call');
     setIsLoading(true);
     setMessage({ type: '', text: '' });
 
