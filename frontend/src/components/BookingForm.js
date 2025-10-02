@@ -617,7 +617,14 @@ const BookingForm = ({ showHeader = true }) => {
               type="submit"
               className="submit-btn"
               disabled={isLoading}
-              onClick={() => console.log('Submit button clicked')}
+              onClick={(e) => {
+                console.log('=== SUBMIT BUTTON CLICKED ===');
+                console.log('Event:', e);
+                console.log('Event type:', e.type);
+                console.log('Event target:', e.target);
+                console.log('isLoading:', isLoading);
+                // Don't prevent default here, let the form handle it
+              }}
             >
               {isLoading ? t('form.loading') : t('form.submit')}
             </button>
