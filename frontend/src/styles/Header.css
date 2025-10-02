@@ -1,0 +1,257 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo h1 {
+  color: #D4AF37;
+  font-size: 32px;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 4px;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Chinese font optimization */
+.logo h1.artistic-font {
+  font-family: 'Times New Roman', 'Noto Serif SC', serif;
+  font-size: 32px;
+  letter-spacing: 4px;
+}
+
+@keyframes goldenShine {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+}
+
+.nav-item a,
+.nav-item Link {
+  color: #D4AF37;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  padding: 10px 0;
+  position: relative;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  letter-spacing: 2px;
+  display: block;
+  text-transform: uppercase;
+}
+
+.nav-item a::after,
+.nav-item Link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #D4AF37;
+  transition: width 0.3s ease;
+}
+
+.nav-item a:hover,
+.nav-item Link:hover {
+  color: #F5F5F5;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.nav-item a:hover::after,
+.nav-item Link:hover::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.language-toggle {
+  background: transparent;
+  border: 2px solid #D4AF37;
+  color: #D4AF37;
+  padding: 12px 24px;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.language-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #D4AF37;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.language-toggle:hover {
+  color: #000;
+  border-color: #F5F5F5;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+}
+
+.language-toggle:hover::before {
+  left: 0;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #D4AF37;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: #D4AF37;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.hamburger::before {
+  top: -10px;
+}
+
+.hamburger::after {
+  bottom: -10px;
+}
+
+.hamburger.open {
+  background: transparent;
+}
+
+.hamburger.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburger.open::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.98);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  }
+
+  .nav-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    padding: 20px;
+    gap: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  }
+
+  .nav-item a,
+  .nav-item Link {
+    display: block;
+    padding: 20px 0;
+    font-size: 18px;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .header-container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 24px;
+  }
+
+  .header-container {
+    height: 70px;
+  }
+
+  .nav {
+    top: 70px;
+  }
+}

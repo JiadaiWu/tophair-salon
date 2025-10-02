@@ -1,0 +1,359 @@
+.footer {
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+  padding: 80px 0 40px 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 75%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(255, 215, 0, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-section h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #FFD700;
+  margin: 0 0 25px 0;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldenShine 3s ease-in-out infinite;
+}
+
+@keyframes goldenShine {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.footer-section p {
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0 0 15px 0;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.footer-address {
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-phone,
+.footer-email,
+.footer-hours {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-address::before,
+.footer-phone::before,
+.footer-email::before,
+.footer-hours::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.footer-phone::before {
+  content: '📞';
+  background: none;
+  width: auto;
+  height: auto;
+  font-size: 1rem;
+}
+
+.footer-email::before {
+  content: '✉️';
+  background: none;
+  width: auto;
+  height: auto;
+  font-size: 1rem;
+}
+
+/* Social media contact info styles */
+.footer-social {
+  margin-top: 10px;
+}
+
+.footer-wechat,
+.footer-instagram,
+.footer-email-contact {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.footer-wechat::before {
+  content: '💚';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  font-size: 1.2rem;
+}
+
+.footer-instagram::before {
+  content: '📸';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  font-size: 1.2rem;
+}
+
+.footer-email-contact::before {
+  content: '📧';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  font-size: 1.2rem;
+}
+
+.footer-address::before {
+  content: '';
+  background: none;
+  width: 0;
+  height: 0;
+  font-size: 0;
+}
+
+.footer-hours::before {
+  content: '🕒';
+  background: none;
+  width: auto;
+  height: auto;
+  font-size: 1rem;
+}
+
+.footer-description {
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+  opacity: 0.8 !important;
+  font-style: italic;
+}
+
+/* Special styles for address and phone info */
+.footer-address div,
+.footer-hours div {
+  margin-bottom: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.footer-address div:last-child,
+.footer-hours div:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Store name styles */
+.footer-address div strong,
+.footer-hours div strong {
+  color: #FFD700;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  letter-spacing: 0.5px;
+}
+
+/* Phone styles in address */
+.footer-address div br + br {
+  display: none;
+}
+
+.footer-address div {
+  line-height: 1.8;
+}
+
+.footer-address div br {
+  display: block;
+  margin: 3px 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 215, 0, 0.1);
+  padding-top: 30px;
+  text-align: center;
+}
+
+.footer-copyright {
+  color: #FFD700;
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.7;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 70px 0 35px 0;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+  }
+
+  .footer-section h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 0 30px 0;
+  }
+
+  .footer-container {
+    padding: 0 15px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-bottom: 40px;
+  }
+
+  .footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-section p {
+    font-size: 1rem;
+  }
+
+  /* Mobile: center all content */
+  .footer-section,
+  .footer-address,
+  .footer-phone,
+  .footer-email,
+  .footer-hours,
+  .footer-wechat,
+  .footer-instagram,
+  .footer-email-contact {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  /* Mobile: keep icons inline and center with text */
+  .footer-address::before,
+  .footer-phone::before,
+  .footer-email::before,
+  .footer-hours::before,
+  .footer-wechat::before,
+  .footer-instagram::before,
+  .footer-email-contact::before {
+    position: static;
+    display: inline-block;
+    transform: none;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+  }
+
+  /* Center each address and hours entry */
+  .footer-address div,
+  .footer-hours div {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 50px 0 25px 0;
+  }
+
+  .footer-content {
+    gap: 30px;
+    margin-bottom: 35px;
+  }
+
+  .footer-section h3 {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+  }
+
+  .footer-section p {
+    font-size: 0.95rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.9rem;
+  }
+}

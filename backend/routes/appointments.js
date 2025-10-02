@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Appointment = require('../models/Appointment');
-const { sendBookingNotification } = require('../utils/emailService');
+const { sendBookingNotification, sendCancellationNotification } = require('../utils/emailService');
 
 // Create a new appointment
 router.post('/book', async (req, res) => {
@@ -41,6 +41,59 @@ router.post('/book', async (req, res) => {
         res.status(400).json({
             success: false,
             message: 'Booking failed. Please check if the information is complete and correct.',
+            error: error.message
+        });
+    }
+});
+
+// Cancel an appointment
+router.put('/:id/cancel', async (req, res) => {
+    try {
+        const appointment = await Appointment.findById(req.params.id);
+        
+        if (!appointment) {
+            return res.status(404).json({
+                success: false,
+                message: 'Appointment not found'
+            });
+        }
+
+        if (appointment.status === 'cancelled') {
+            return res.status(400).json({
+                success: false,
+                message: 'Appointment is already cancelled'
+            });
+        }
+
+        // Update appointment status
+        appointment.status = 'cancelled';
+        await appointment.save();
+
+        console.log('Appointment cancelled successfully:', appointment._id);
+
+        // Send cancellation email notification
+        try {
+            await sendCancellationNotification(appointment);
+            console.log('Cancellation email sent successfully!');
+        } catch (emailError) {
+            console.error('Cancellation email sending failed:', emailError.message);
+            // Email failure doesn't affect cancellation success
+        }
+
+        res.json({
+            success: true,
+            message: 'Appointment cancelled successfully',
+            appointment: {
+                id: appointment._id,
+                status: appointment.status
+            }
+        });
+
+    } catch (error) {
+        console.error('Failed to cancel appointment:', error.message);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to cancel appointment',
             error: error.message
         });
     }
@@ -92,9 +145,10 @@ router.post('/search', async (req, res) => {
             });
         }
 
-        // Build search conditions
+        // Build search conditions (exclude cancelled appointments)
         const searchConditions = {
-            customerName: customerName.trim()
+            customerName: customerName.trim(),
+            status: { $ne: 'cancelled' }
         };
 
         // Add phone/email conditions

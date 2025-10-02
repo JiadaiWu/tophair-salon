@@ -1,0 +1,189 @@
+/* Chinese font style optimization - harmonized with English fonts */
+
+/* Import more beautiful Chinese fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Han+Serif+SC:wght@300;400;500;600;700;900&display=swap');
+
+/* Basic Chinese font configuration - using same font family as English */
+body[lang="zh"] {
+  font-family: 'Playfair Display', 'Noto Serif SC', 'Source Han Serif SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Artistic font classes - consistent style with English titles */
+.artistic-font {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.elegant-font {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.bold-artistic {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+/* Title font optimization - consistent style with English */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+}
+
+body[lang="zh"] h1,
+body[lang="zh"] h2,
+body[lang="zh"] h3 {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* Paragraph text optimization - using more modern Chinese fonts */
+body[lang="zh"] p {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+/* Button text optimization */
+body[lang="zh"] button {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Navigation link optimization */
+body[lang="zh"] .nav-item a,
+body[lang="zh"] .nav-item Link {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* Form element optimization */
+body[lang="zh"] input,
+body[lang="zh"] select,
+body[lang="zh"] textarea {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-weight: 400;
+}
+
+/* Card title optimization - consistent style with English */
+body[lang="zh"] .service-name,
+body[lang="zh"] .location-name,
+body[lang="zh"] .gallery-item-title,
+body[lang="zh"] .product-name {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* Card description optimization - using more modern Chinese fonts */
+body[lang="zh"] .service-description,
+body[lang="zh"] .location-address,
+body[lang="zh"] .gallery-item-description,
+body[lang="zh"] .product-description {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+/* Price text optimization */
+body[lang="zh"] .service-price,
+body[lang="zh"] .gallery-item-price,
+body[lang="zh"] .product-price {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* Footer text optimization */
+body[lang="zh"] .footer-section h3 {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+body[lang="zh"] .footer-address,
+body[lang="zh"] .footer-phone,
+body[lang="zh"] .footer-email,
+body[lang="zh"] .footer-hours {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+/* Special Chinese font optimization */
+body[lang="zh"] .hero-title {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+body[lang="zh"] .services-title,
+body[lang="zh"] .team-title,
+body[lang="zh"] .booking-title {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Chinese font rendering optimization */
+body[lang="zh"] * {
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+}
+
+/* Responsive font adjustments */
+@media (max-width: 768px) {
+  body[lang="zh"] h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+  
+  body[lang="zh"] h2 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  body[lang="zh"] .artistic-font {
+    letter-spacing: 1px;
+  }
+  
+  body[lang="zh"] .bold-artistic {
+    letter-spacing: 2px;
+  }
+  
+  body[lang="zh"] .hero-title {
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  body[lang="zh"] h1 {
+    font-size: 2rem;
+  }
+  
+  body[lang="zh"] h2 {
+    font-size: 1.8rem;
+  }
+  
+  body[lang="zh"] p {
+    font-size: 0.95rem;
+  }
+  
+  body[lang="zh"] .hero-title {
+    letter-spacing: 1px;
+  }
+}
+
+

@@ -1,0 +1,180 @@
+.about-page .page-header {
+  padding: 100px 0 60px;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+  text-align: center;
+}
+
+.about-page .page-header .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-page .page-header h1 {
+  color: #FFD700;
+  margin: 0 0 10px 0;
+}
+
+.about-page .page-header p {
+  color: #D4AF37;
+  opacity: 0.9;
+}
+
+.about-history .container,
+.about-gallery .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Founder section */
+.about-founder .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+.founder-wrap { display: grid; grid-template-columns: 420px 1fr; gap: 32px; align-items: center; }
+.founder-photo img { width: 100%; height: auto; border-radius: 16px; box-shadow: 0 18px 40px rgba(0,0,0,.4); border: 1px solid rgba(212,175,55,.2); }
+.founder-name { color: #FFD700; margin: 8px 0 12px 0; font-size: 1.6rem; }
+.founder-bio { color: #F5F5F5; line-height: 1.8; opacity: .9; }
+
+.store-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  color: #D4AF37;
+  margin: 0 0 16px 0;
+  font-size: 1.8rem;
+}
+
+.history-text {
+  color: #F5F5F5;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Store sections */
+.store-section {
+  margin-bottom: 40px;
+}
+
+#about .store-title {
+  color: #FFD700;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+/* Masonry collage */
+/* Randomly stacked polaroid style */
+.collage {
+  position: relative;
+  padding: 24px 0 12px;
+  min-height: 320px;
+}
+
+/* Move Balmoral section to the right */
+#about-balmoral .collage {
+  transform: translateX(100px);
+}
+
+/* Balmoral title moves right synchronously */
+#about-balmoral .store-title {
+  margin-left: 100px;
+}
+
+.polaroid {
+  position: relative;
+  width: 240px;
+  background: #fff;
+  padding: 10px; /* Remove bottom comment space */
+  border-radius: 6px;
+  box-shadow: 0 18px 30px rgba(0,0,0,.35), 0 2px 0 rgba(0,0,0,.2) inset;
+  border: 1px solid rgba(255,255,255,.5);
+}
+
+.polaroid img {
+  width: 220px;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+}
+
+/* Remove comment text styles */
+
+/* Random positions and rotations (12 presets) */
+.collage .polaroid { position: absolute; }
+.collage .p-1  { top: 10px;  left: 10px;  transform: rotate(-6deg); }
+.collage .p-2  { top: 40px;  left: 210px; transform: rotate(4deg); }
+.collage .p-3  { top: 0;     left: 420px; transform: rotate(-2deg); }
+.collage .p-4  { top: 70px;  left: 620px; transform: rotate(7deg); }
+.collage .p-5  { top: 150px; left: 60px;  transform: rotate(3deg); }
+.collage .p-6  { top: 140px; left: 300px; transform: rotate(-8deg); }
+.collage .p-7  { top: 200px; left: 520px; transform: rotate(5deg); }
+.collage .p-8  { top: 40px;  left: 820px; transform: rotate(-4deg); }
+.collage .p-9  { top: 200px; left: 820px; transform: rotate(2deg); }
+.collage .p-10 { top: 260px; left: 420px; transform: rotate(-3deg); }
+.collage .p-11 { top: 260px; left: 200px; transform: rotate(6deg); }
+.collage .p-12 { top: 260px; left: 640px; transform: rotate(-1deg); }
+
+.polaroid:hover {
+  transform: translateY(-3px) scale(1.02) rotate(0deg);
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .store-row { grid-template-columns: 1fr; }
+  .founder-wrap { grid-template-columns: 1fr; }
+  .polaroid { width: 210px; }
+  .polaroid img { width: 190px; height: 160px; }
+  .collage .p-2  { left: 190px; }
+  .collage .p-3  { left: 370px; }
+  .collage .p-4  { left: 540px; }
+  .collage .p-6  { left: 260px; }
+  .collage .p-7  { left: 460px; }
+  .collage .p-8  { left: 700px; }
+  .collage .p-9  { left: 700px; }
+  .collage .p-12 { left: 560px; }
+  /* No right shift on tablet */
+  #about-balmoral .collage { transform: none; }
+  #about-balmoral .store-title { margin-left: 0; }
+}
+
+@media (max-width: 768px) {
+  .polaroid { width: 200px; }
+  .polaroid img { width: 180px; height: 150px; }
+  .collage { min-height: 280px; }
+  .founder-wrap { grid-template-columns: 1fr; gap: 20px; }
+  .collage .p-3  { left: 300px; }
+  .collage .p-4  { left: 460px; }
+  .collage .p-7  { left: 360px; }
+  .collage .p-8  { left: 540px; }
+  .collage .p-9  { left: 540px; }
+  /* No right shift on small screen */
+  #about-balmoral .collage { transform: none; }
+  #about-balmoral .store-title { margin-left: 0; }
+}
+
+@media (max-width: 480px) {
+  .polaroid { width: 180px; }
+  .polaroid img { width: 160px; height: 140px; }
+  .collage { min-height: 240px; }
+  .collage .p-2  { left: 140px; }
+  .collage .p-3  { left: 220px; }
+  .collage .p-4  { left: 300px; }
+  .collage .p-7  { left: 220px; }
+  .collage .p-8  { left: 300px; }
+  .collage .p-9  { left: 300px; }
+  /* No right shift on extra small screen */
+  #about-balmoral .collage { transform: none; }
+  #about-balmoral .store-title { margin-left: 0; }
+}
+
+

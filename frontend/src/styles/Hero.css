@@ -1,0 +1,277 @@
+.hero {
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-content-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Left text area */
+.hero-text {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px;
+  background: #000;
+  z-index: 3;
+  position: relative;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', 'Noto Serif SC', 'Source Han Serif SC', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  color: #D4AF37;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #B8B8B8;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-description {
+  font-size: 1rem;
+  color: #D4D4D4;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  font-family: 'Playfair Display', 'Times New Roman', 'Noto Serif SC', 'Source Han Serif SC', serif;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  max-width: 500px;
+}
+
+.hero-cta {
+  background: transparent;
+  border: 2px solid #D4AF37;
+  color: #D4AF37;
+  padding: 18px 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  align-self: center;
+  position: relative;
+  overflow: hidden;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #D4AF37;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.hero-cta:hover {
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.hero-cta:hover::before {
+  left: 0;
+}
+
+/* Right image area */
+.hero-image {
+  flex: 0 0 80%;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% center; /* Slightly offset left for better view */
+  filter: grayscale(80%) contrast(1.2) brightness(0.9);
+  transition: all 0.5s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-image:hover .hero-img {
+  filter: grayscale(60%) contrast(1.3) brightness(1.0);
+  transform: scale(1.02);
+}
+
+/* Key gradient mask - this is the focus of the fix */
+.hero-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,        /* Left side completely black */
+    rgba(0, 0, 0, 0.8) 20%,     /* Gradually transparent */
+    rgba(0, 0, 0, 0.5) 40%,     /* More transparent */
+    rgba(0, 0, 0, 0.2) 60%,     /* Almost transparent */
+    transparent 100%            /* Right side completely transparent */
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .hero {
+    position: relative;
+  }
+  
+  .hero-content-wrapper {
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero-text {
+    flex: 1;
+    padding: 60px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: none; /* Remove background blur on mobile to avoid image blur */
+    position: relative;
+    z-index: 3;
+    min-height: 100vh;
+  }
+  
+  .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .hero-img {
+    filter: grayscale(80%) contrast(1.2) brightness(0.9);
+    object-position: 45% center; /* Mobile fine-tuning, still slightly left */
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    padding: 40px 30px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: none; /* Remove blur */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-description {
+    font-size: 0.95rem;
+    max-width: 400px;
+  }
+  
+  .hero-cta {
+    padding: 15px 30px;
+    pointer-events: auto;
+    z-index: 10;
+    position: relative;
+  }
+  
+  .hero-img {
+    filter: grayscale(80%) contrast(1.2) brightness(0.9);
+    object-position: 45% center; /* Mobile fine-tuning */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text {
+    padding: 30px 20px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: none; /* Remove blur */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+    max-width: 350px;
+  }
+  
+  .hero-img {
+    filter: grayscale(80%) contrast(1.2) brightness(0.9);
+  }
+}
+
+
