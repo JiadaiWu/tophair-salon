@@ -7,6 +7,12 @@ import '../styles/BookingForm.css';
 const BookingForm = ({ showHeader = true }) => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
+  
+  // 调试信息
+  useEffect(() => {
+    console.log('BookingForm component mounted');
+    console.log('handleSubmit function:', typeof handleSubmit);
+  }, []);
   const [message, setMessage] = useState({ type: '', text: '' });
   const [activeTab, setActiveTab] = useState('book'); // 'book' or 'search'
   
@@ -125,7 +131,7 @@ const BookingForm = ({ showHeader = true }) => {
 
     if (!formData.phone.trim()) {
       newErrors.phone = t('form.required');
-    } else if (!/^[\+]?[0-9\s\-\(\)]{7,}$/.test(formData.phone)) {
+    } else if (!/^[+]?[0-9\s\-()]{7,}$/.test(formData.phone)) {
       newErrors.phone = t('form.invalid.phone');
     }
 
@@ -161,7 +167,7 @@ const BookingForm = ({ showHeader = true }) => {
       newErrors.contact = t('form.search.phone_or_email_required');
     } else {
       const isEmail = /\S+@\S+\.\S+/.test(contact);
-      const isPhone = /^[\+]?[0-9\s\-\(\)]{7,}$/.test(contact);
+      const isPhone = /^[+]?[0-9\s\-()]{7,}$/.test(contact);
       if (!isEmail && !isPhone) {
         newErrors.contact = t('form.search.phone_or_email_required');
       }
@@ -594,6 +600,16 @@ const BookingForm = ({ showHeader = true }) => {
           )}
 
           <div className="form-actions">
+            <button
+              type="button"
+              onClick={() => {
+                console.log('Test button clicked');
+                alert('Test button works!');
+              }}
+              style={{ marginRight: '10px', padding: '10px', background: 'red', color: 'white' }}
+            >
+              Test Button
+            </button>
             <button
               type="submit"
               className="submit-btn"
