@@ -405,6 +405,7 @@ const BookingForm = ({ showHeader = true }) => {
   const minDateString = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
   const handleTabChange = (tab) => {
+    console.log('Tab changed to:', tab);
     setActiveTab(tab);
     setMessage({ type: '', text: '' });
     if (tab === 'search') {
