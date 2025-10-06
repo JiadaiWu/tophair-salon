@@ -4,10 +4,10 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // 发型师邮箱配置
 const stylistEmails = {
-    '1': 'wuzhuo953@gmail.com',
-    '2': 'wuzhuo953@gmail.com',
-    '3': 'wuzhuo953@gmail.com',
-    '4': 'wuzhuo953@gmail.com',
+    '1': 'jwu747@aucklanduni.ac.nz',
+    '2': 'jwu747@aucklanduni.ac.nz',
+    '3': 'jwu747@aucklanduni.ac.nz',
+    '4': 'jwu747@aucklanduni.ac.nz',
 };
 
 // 获取服务类型名称
