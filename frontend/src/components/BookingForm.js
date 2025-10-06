@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
+import i18n from '../utils/i18n';
 import { appointmentAPI } from '../utils/api';
 import '../styles/BookingForm.css';
 
@@ -173,16 +174,11 @@ const BookingForm = ({ showHeader = true }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('=== FORM SUBMIT STARTED ===');
-    console.log('Form submitted with data:', formData);
-    console.log('isLoading state:', isLoading);
     
     if (!validateForm()) {
-      console.log('Form validation failed');
       return;
     }
 
-    console.log('Form validation passed, starting API call');
     setIsLoading(true);
     setMessage({ type: '', text: '' });
 
@@ -357,7 +353,8 @@ const BookingForm = ({ showHeader = true }) => {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('zh-CN', {
+    const currentLanguage = i18n.language || 'en';
+    return date.toLocaleDateString(currentLanguage === 'zh' ? 'zh-CN' : 'en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -596,35 +593,9 @@ const BookingForm = ({ showHeader = true }) => {
 
           <div className="form-actions">
             <button
-              type="button"
-              onClick={() => {
-                console.log('=== TEST BUTTON CLICKED ===');
-                alert('Test button works!');
-              }}
-              style={{
-                marginRight: '10px',
-                padding: '10px 20px',
-                background: 'red',
-                color: 'white',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer'
-              }}
-            >
-              Test Button
-            </button>
-            <button
               type="submit"
               className="submit-btn"
               disabled={isLoading}
-              onClick={(e) => {
-                console.log('=== SUBMIT BUTTON CLICKED ===');
-                console.log('Event:', e);
-                console.log('Event type:', e.type);
-                console.log('Event target:', e.target);
-                console.log('isLoading:', isLoading);
-                // Don't prevent default here, let the form handle it
-              }}
             >
               {isLoading ? t('form.loading') : t('form.submit')}
             </button>

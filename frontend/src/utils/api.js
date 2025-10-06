@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://tophair-salon.onrender.com/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 // Create axios instance
 const api = axios.create({
@@ -8,16 +8,13 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 30000,
+  timeout: 60000,
 });
 
 // Request interceptor
 api.interceptors.request.use(
   (config) => {
     console.log('Making API request to:', config.baseURL + config.url);
-    console.log('Request method:', config.method);
-    console.log('Request data:', config.data);
-    console.log('Request headers:', config.headers);
     // Can add authentication token here
     return config;
   },
