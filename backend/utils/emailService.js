@@ -6,7 +6,10 @@ const transporter = nodemailer.createTransport({
     auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASS,
-    }
+    },
+    connectionTimeout: 30000,  
+    greetingTimeout: 30000,    
+    socketTimeout: 60000 
 });
 
 // Stylist emails for each store (consistent with appointment creation, using '1'~'4' as store IDs)
