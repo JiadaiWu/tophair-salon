@@ -21,7 +21,13 @@ connectDB().catch(err => {
     console.log('Server will continue without database connection');
 });
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://tophair-salon-frontend.vercel.app',
+    'http://localhost:3000'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 app.get('/', (req, res) => {
