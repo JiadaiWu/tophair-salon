@@ -22,8 +22,8 @@ connectDB().catch(err => {
 });
 
 app.use(cors({
-  origin: [
-    'https://tophair-salon-frontend.vercel.app',
+   origin: [
+    /\.vercel\.app$/,
     'http://localhost:3000'
   ],
   credentials: true
