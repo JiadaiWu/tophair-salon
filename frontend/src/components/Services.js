@@ -6,7 +6,7 @@ import '../styles/Services.css';
 const Services = () => {
   const { t } = useTranslation();
 
-  // 为每个服务卡片创建滚动动画
+  
   const [titleRef, titleVisible] = useScrollAnimation();
   const [card1Ref, card1Visible] = useScrollAnimation();
   const [card2Ref, card2Visible] = useScrollAnimation();

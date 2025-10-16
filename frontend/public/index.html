@@ -16,6 +16,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
     
+    <!-- Etude Noire local font from public/fonts -->
+    <!-- Temporarily preload WOFF only to avoid OTS error from invalid WOFF2 -->
+    <link rel="preload" href="/fonts/EtudeNoire.woff" as="font" type="font/woff" crossorigin>
+    <style>
+      @font-face {
+        font-family: 'Etude Noire';
+        src: url('/fonts/EtudeNoire.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+    
     <title>TOP HAIR - Professional Hair Studio</title>
   </head>
   <body>

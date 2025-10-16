@@ -2,9 +2,6 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../styles/About.css';
 
-// 两行布局：
-// 第1行：CBD 与 East（City / Newmarket）
-// 第2行：North 与 West（Albany / Balmoral）
 const storeRows = [
   [
     { id: 'city', title: 'City:', images: ['/images/city_1.jpg', '/images/city_2.jpg'] },

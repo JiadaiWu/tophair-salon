@@ -9,7 +9,7 @@ const useScrollAnimation = (options = {}) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // 可选：动画完成后停止观察
+          
           if (options.once !== false) {
             observer.unobserve(entry.target);
           }

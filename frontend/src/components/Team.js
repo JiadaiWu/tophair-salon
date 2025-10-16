@@ -7,22 +7,22 @@ const Team = () => {
   const [activeStore, setActiveStore] = useState('newmarket');
   const stylistsGridRef = useRef(null);
 
-  // 发型师数据按店铺分组
+  
   const stylistsByStore = {
     newmarket: [
-      {
-        id: 'allen',
-        name: t('team.allen.name'),
-        role: t('team.allen.role'),
-        image: '/images/stylists/Allen.jpg',
-        description: t('team.allen.description')
-      },
       {
         id: 'fei',
         name: t('team.fei.name'),
         role: t('team.fei.role'),
         image: '/images/stylists/阿飞 Fei.jpg',
         description: t('team.fei.description')
+      },
+      {
+        id: 'allen',
+        name: t('team.allen.name'),
+        role: t('team.allen.role'),
+        image: '/images/stylists/Allen.jpg',
+        description: t('team.allen.description')
       },
       {
         id: 'ying',
@@ -117,7 +117,7 @@ const Team = () => {
     { id: 'city', name: t('team.city.title') }
   ];
 
-  // 移动端：切换店铺时回到第一个卡片
+  
   useEffect(() => {
     if (stylistsGridRef.current) {
       requestAnimationFrame(() => {
@@ -126,13 +126,13 @@ const Team = () => {
     }
   }, [activeStore]);
 
-  // 移动端：左右切换
+  
   const scrollMobile = (dir) => {
     const container = stylistsGridRef.current;
     if (!container) return;
     const viewportWidth = container.clientWidth;
     const delta = dir === 'next' ? viewportWidth : -viewportWidth;
-    // 保证不会越界
+    
     const target = container.scrollLeft + delta;
     const maxLeft = container.scrollWidth - container.clientWidth;
     const clamped = Math.max(0, Math.min(maxLeft, target));

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import '../styles/Hero.css';
 
 const Hero = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
    const goToBooking = () => {
      console.log('Navigate to booking page');
@@ -16,8 +16,15 @@ const Hero = () => {
       <div className="hero-content-wrapper">
         {/* 左侧文字内容 */}
         <div className="hero-text">
-          <h1 className="hero-title">
-            {t('hero.title')}
+          <h1 className="hero-title etude-noire">
+            {i18n.language && i18n.language.startsWith('zh') ? (
+              <>
+                TOP HAIR<br />
+                <span className="hero-title-sub">顶点沙龙</span>
+              </>
+            ) : (
+              t('hero.title')
+            )}
           </h1>
           <p className="hero-subtitle">
             {t('hero.subtitle')}

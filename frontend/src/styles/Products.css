@@ -147,17 +147,7 @@
 
 .product-feature-card:hover .feature-image { transform: none; }
 
-.feature-badge {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(212, 175, 55, 0.9);
-  color: #000;
-  font-weight: 700;
-  letter-spacing: .5px;
-}
+/* .feature-badge removed per request */
 
 .feature-info { padding: 18px 20px 22px; }
 .feature-title {

@@ -54,10 +54,10 @@ const Header = () => {
         document.body.scrollTop = 0;
       };
       
-      // 立即执行
+      
       scrollToTop();
       
-      // 使用多个时机确保滚动到顶部
+      
       setTimeout(scrollToTop, 0);
       setTimeout(scrollToTop, 5);
       setTimeout(scrollToTop, 10);
@@ -65,7 +65,7 @@ const Header = () => {
       setTimeout(scrollToTop, 50);
       setTimeout(scrollToTop, 100);
     } else {
-      // 其他页面的常规处理
+      
       setTimeout(() => {
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
@@ -74,15 +74,15 @@ const Header = () => {
     }
   };
 
-  // 处理锚点链接滚动
+  
   const handleAnchorClick = (e, anchorId) => {
     e.preventDefault();
     closeMenu();
     
-    // 如果当前不在首页，先导航到首页
+    
     if (location.pathname !== '/') {
       navigate('/');
-      // 多次尝试滚动，确保元素已渲染且动画结束
+      
       const attempts = [50, 120, 200, 350];
       attempts.forEach((delay) => setTimeout(() => scrollToElement(anchorId), delay));
     } else {
@@ -95,7 +95,7 @@ const Header = () => {
     if (element) {
       const headerEl = document.querySelector('.header');
       const headerHeight = headerEl ? headerEl.offsetHeight : 80;
-      const extraGap = 12; // 额外间距，避免标题被遮挡
+      const extraGap = 12;
       const targetTop = element.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
       window.scrollTo({ top: Math.max(0, targetTop), behavior: 'instant' });
     }
@@ -105,7 +105,7 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
             <div className="logo">
-              <h1>TOP HAIR</h1>
+              <h1 className="etude-noire">TOP HAIR</h1>
             </div>
         
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>

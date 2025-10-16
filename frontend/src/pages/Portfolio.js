@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/Portfolio.css';
 
 const sources = [
@@ -17,13 +18,14 @@ const sources = [
 ];
 
 const Portfolio = () => {
+  const { t } = useTranslation();
   useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
     <div className="portfolio-page">
       <div className="page-header">
         <div className="container">
-          <h1>Portfolio</h1>
-          <p>Selected works and store vibes</p>
+          <h1>{t('gallery.title')}</h1>
+          <p>{t('gallery.subtitle')}</p>
         </div>
       </div>
       <div className="container">

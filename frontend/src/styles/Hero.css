@@ -31,13 +31,23 @@
 .hero-title {
   font-family: 'Playfair Display', 'Noto Serif SC', 'Source Han Serif SC', serif;
   font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 300;
+  font-weight: 700; /* unify weight across languages */
   color: #D4AF37;
   line-height: 1.1;
   letter-spacing: 0.05em;
   margin-bottom: 20px;
   text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
 }
+
+/* Smaller second line for Chinese subtitle */
+.hero-title-sub {
+  display: inline-block;
+  font-size: 0.55em;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+}
+
+/* remove arc styles since we reverted to straight title */
 
 .hero-subtitle {
   font-size: 1.2rem;
@@ -220,6 +230,9 @@
   .hero-title {
     font-size: clamp(2.5rem, 10vw, 4rem);
   }
+  .hero-arc-title .hero-title {
+    font-size: clamp(28px, 10vw, 56px);
+  }
   
   .hero-subtitle {
     font-size: 1.1rem;
@@ -258,6 +271,9 @@
   
   .hero-title {
     font-size: 2.5rem;
+  }
+  .hero-arc-title .hero-title {
+    font-size: 32px;
   }
   
   .hero-subtitle {

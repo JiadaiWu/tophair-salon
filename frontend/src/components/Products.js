@@ -30,7 +30,6 @@ const Products = () => {
             <div key={item.id} className="product-feature-card">
               <div className="feature-image-wrap">
                 <img src={item.image} alt={item.headline} className="feature-image" />
-                <div className="feature-badge">{item.headline}</div>
               </div>
               <div className="feature-info">
                 <h3 className="feature-title">{item.subline}</h3>

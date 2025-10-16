@@ -4,6 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Han+Serif+SC:wght@300;400;500;600;700;900&display=swap');
 
+/* Utility class to apply Etude Noire */
+.logo h1.etude-noire, .hero-title.etude-noire, .etude-noire {
+  font-family: 'Etude Noire', 'Playfair Display', 'Noto Serif SC', serif;
+}
+
 /* Basic Chinese font configuration - using same font family as English */
 body[lang="zh"] {
   font-family: 'Playfair Display', 'Noto Serif SC', 'Source Han Serif SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', serif;
@@ -122,9 +127,9 @@ body[lang="zh"] .footer-hours {
 
 /* Special Chinese font optimization */
 body[lang="zh"] .hero-title {
-  font-family: 'Playfair Display', 'Noto Serif SC', serif;
-  font-weight: 700;
-  letter-spacing: 3px;
+  font-family: 'Etude Noire', 'Playfair Display', 'Noto Serif SC', serif;
+  font-weight: 700; /* keep same as English */
+  letter-spacing: 0.05em; /* align with Hero.css */
   text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
 }
 
@@ -186,4 +191,22 @@ body[lang="zh"] * {
   }
 }
 
+
+/* Ensure Header logo font consistent across languages */
+body[lang="zh"] .logo h1.etude-noire,
+body[lang="en"] .logo h1.etude-noire {
+  font-family: 'Etude Noire', 'Playfair Display', 'Noto Serif SC', serif;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  white-space: nowrap; /* force single line for TOP HAIR */
+}
+
+/* Slightly smaller logo on Chinese pages to match English visual size */
+body[lang="zh"] .logo h1.etude-noire { font-size: 30px; }
+@media (max-width: 768px) {
+  body[lang="zh"] .logo h1.etude-noire { font-size: 26px; }
+}
+@media (max-width: 480px) {
+  body[lang="zh"] .logo h1.etude-noire { font-size: 20px; }
+}
 

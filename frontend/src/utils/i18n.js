@@ -9,7 +9,7 @@ const resources = {
       'nav.home': 'Home',
       'nav.booking': 'Booking',
       'nav.services': 'Services',
-      'nav.portfolio': 'Portfolio',
+      'nav.portfolio': 'Gallery',
       'nav.gallery': 'Stores',
       'nav.about': 'About Us',
       'nav.products': 'Products',
@@ -33,7 +33,7 @@ const resources = {
       'services.coloring.name': 'COLORING',
       'services.coloring.description': 'Apply artificial treatments and valuable services',
       'services.viewAll': 'VIEW ALL SERVICES',
-      'services.portfolio': 'PORTFOLIO',
+      'services.portfolio': 'GALLERY',
       'services.haircut.name': 'Haircut',
       'services.haircut.price': 'From $35',
       'services.haircut.description': 'Professional haircut and styling',
@@ -270,7 +270,7 @@ const resources = {
       'language.switch': 'English',
       
       // Hero Section
-      'hero.title': 'TOP HAIR 顶点理发',
+      'hero.title': 'TOP HAIR顶点沙龙',
       'hero.subtitle': '专业发型工作室',
       'hero.description': '为想要改变造型的你提供专业发型设计服务，让您展现最美的一面',
       'hero.cta': '立即预约',

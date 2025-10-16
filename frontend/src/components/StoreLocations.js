@@ -8,7 +8,7 @@ const StoreLocations = () => {
   const [activeStore, setActiveStore] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
 
-  // 滚动动画
+  
   const [headerRef, headerVisible] = useScrollAnimation();
   const [mainRef, mainVisible] = useScrollAnimation();
   const [infoRef, infoVisible] = useScrollAnimation();
@@ -30,7 +30,7 @@ const StoreLocations = () => {
       address: t('stores.newmarket.address'),
       phone: t('stores.newmarket.phone'),
       hours: t('stores.newmarket.hours'),
-      image: '/images/newMarket_1.jpg',
+      image: '/images/newMarket_3.jpg',
       description: t('stores.newmarket.description')
     },
     {
@@ -53,7 +53,7 @@ const StoreLocations = () => {
     }
   ];
 
-  // 自动播放逻辑
+  
   useEffect(() => {
     if (isAutoPlay) {
       const interval = setInterval(() => {

@@ -28,6 +28,7 @@
   letter-spacing: 4px;
   font-family: 'Playfair Display', 'Times New Roman', serif;
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  white-space: nowrap; /* keep TOP HAIR on one line */
 }
 
 /* Chinese font optimization */
@@ -72,6 +73,8 @@
   letter-spacing: 2px;
   display: block;
   text-transform: uppercase;
+  outline: none; /* override global *:focus outline */
+  -webkit-tap-highlight-color: transparent; /* remove mobile tap highlight */
 }
 
 .nav-item a::after,
@@ -95,6 +98,13 @@
 .nav-item a:hover::after,
 .nav-item Link:hover::after {
   width: 100%;
+}
+
+/* Accessibility: only show outline when keyboard focusing */
+.nav-item a:focus { outline: none; }
+.nav-item a:focus-visible {
+  outline: 2px solid #FFD700;
+  outline-offset: 4px;
 }
 
 .header-actions {
@@ -149,6 +159,8 @@
   border: none;
   cursor: pointer;
   padding: 5px;
+  outline: none; /* override global *:focus outline */
+  -webkit-tap-highlight-color: transparent; /* remove mobile tap highlight */
 }
 
 .hamburger {
@@ -194,8 +206,21 @@
   bottom: 0;
 }
 
+/* Accessibility: only show outline when keyboard focusing */
+.mobile-menu-toggle:focus { outline: none; }
+.mobile-menu-toggle:focus-visible {
+  outline: 2px solid #FFD700;
+  outline-offset: 4px;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
+  .logo h1 {
+    font-size: 28px;
+    letter-spacing: 3px;
+    line-height: 1.1;
+    white-space: nowrap; /* ensure single line on tablets */
+  }
   .nav {
     position: fixed;
     top: 80px;
@@ -244,7 +269,10 @@
 
 @media (max-width: 480px) {
   .logo h1 {
-    font-size: 24px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    white-space: nowrap; /* ensure single line on phones */
   }
 
   .header-container {
