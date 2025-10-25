@@ -71,13 +71,6 @@ const Team = () => {
         description: t('team.yuan.description')
       },
       {
-        id: 'nana',
-        name: t('team.nana.name'),
-        role: t('team.nana.role'),
-        image: '/images/stylists/NaNa.jpg',
-        description: t('team.nana.description')
-      },
-      {
         id: 'yu',
         name: t('team.yu.name'),
         role: t('team.yu.role'),

@@ -27,9 +27,9 @@ const getServiceName = (service) => {
 const getLocationName = (location) => {
     const locationMap = {
         '1': 'City店 (Queen Street)',
-        '2': 'Newmarket店 (Remuera Road)',
-        '3': 'Albany店 (Corinthian Drive)',
-        '4': 'Balmoral店 (Dominion Road)'
+        '2': '北岸店 (North Shore)',
+        '3': 'newmarket店 (Newmarket)',
+        '4': 'dominion Rd店 (Dominion Road)'
     };
     return locationMap[location] || `Store ${location}`;
 };
