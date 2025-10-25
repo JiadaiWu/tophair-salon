@@ -232,9 +232,6 @@ const resources = {
       'team.yuan.role': 'Master Stylist',
       'team.yuan.description': 'Nearly 40 years in the hairdressing industry. Experienced China\'s hairdressing industry from its budding period through development to the current prosperous modern era. Witnessed the arduous journey of China\'s hairdressing industry development over decades, fulfilling generations\' pursuit of beauty. I have no endpoint, I will always be on the road...',
       
-      'team.nana.name': 'NaNa',
-      'team.nana.role': 'Senior Stylist',
-      'team.nana.description': 'Choose one thing, dedicate a lifetime. Crossed the Pacific Ocean and settled in the beautiful city of Auckland, working diligently with sincere treatment of people. 20 years focused on the hairdressing industry with personal aesthetic creativity, meeting your high standards for hairstyle aesthetics!',
       
       'team.yu.name': 'Yu',
       'team.yu.role': 'Creative Stylist',
@@ -484,9 +481,6 @@ const resources = {
       'team.yuan.role': '首席发型师',
       'team.yuan.description': '从事美发行业近 40 余年，经历了中国美发业从萌芽期到发展期以至现代美发业的蓬勃期，见证了中国美发业几十年发展的艰辛历程，完成了几代人对于美的追求，我没有终点，我将一直在路上….',
       
-      'team.nana.name': 'NaNa',
-      'team.nana.role': '高级发型师',
-      'team.nana.description': '择一事，终一生，跨越太平洋沉淀于奥克兰这座美丽的城市，深耕细作，真诚待人，专注美发行业 20 年具有个人审美创作力，满足您在发型审美上的高标准要求！',
       
       'team.yu.name': '小宇 Yu',
       'team.yu.role': '创意发型师',
