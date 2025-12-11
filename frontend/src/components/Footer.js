@@ -23,8 +23,8 @@ const Footer = () => {
           <div className="footer-section">
             <h3>{t('footer.contactUs')}</h3>
             <div className="footer-social">
-              <p className="footer-wechat">{t('footer.wechat')}</p>
-              <p className="footer-instagram">{t('footer.instagram')}</p>
+              <a href={t('footer.instagram.url')} target="_blank" rel="noopener noreferrer" className="footer-instagram">{t('footer.instagram')}</a>
+              <a href={t('footer.facebook.url')} target="_blank" rel="noopener noreferrer" className="footer-facebook">{t('footer.facebook')}</a>
               <p className="footer-email-contact">{t('footer.emailContact')}</p>
             </div>
           </div>

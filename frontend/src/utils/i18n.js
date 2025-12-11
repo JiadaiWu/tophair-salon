@@ -124,6 +124,9 @@ const resources = {
       'footer.contactUs': 'Contact Us',
       'footer.wechat': 'WeChat: TOPHAIR_NZ',
       'footer.instagram': 'Instagram: @tophair_nz',
+      'footer.instagram.url': 'https://www.instagram.com/tophair?igsh=OHA3bGV6dnI3cWIw&utm_source=qr',
+      'footer.facebook': 'Facebook: TOP HAIR',
+      'footer.facebook.url': 'https://www.facebook.com/share/17fuAdnqdm/?mibextid=wwXIfr',
       'footer.emailContact': 'Email: tophair777@gmail.com',
       'footer.copyright': '© 2024 TOP HAIR. All rights reserved.',
       
@@ -368,6 +371,9 @@ const resources = {
       'footer.contactUs': '联系我们',
       'footer.wechat': '微信: TOPHAIR_NZ',
       'footer.instagram': 'Instagram: @tophair_nz',
+      'footer.instagram.url': 'https://www.instagram.com/tophair?igsh=OHA3bGV6dnI3cWIw&utm_source=qr',
+      'footer.facebook': 'Facebook: TOP HAIR',
+      'footer.facebook.url': 'https://www.facebook.com/share/17fuAdnqdm/?mibextid=wwXIfr',
       'footer.emailContact': '邮箱: tophair777@gmail.com',
       'footer.copyright': '© 2024 TOP HAIR 顶点理发。保留所有权利。',
       

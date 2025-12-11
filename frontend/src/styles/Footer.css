@@ -125,8 +125,8 @@
   margin-top: 10px;
 }
 
-.footer-wechat,
 .footer-instagram,
+.footer-facebook,
 .footer-email-contact {
   position: relative;
   padding-left: 25px;
@@ -143,8 +143,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.footer-wechat::before {
-  content: '💚';
+.footer-instagram,
+.footer-facebook {
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+.footer-instagram:hover,
+.footer-facebook:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.footer-instagram::before {
+  content: '📸';
   position: absolute;
   left: 0;
   top: 50%;
@@ -154,8 +167,8 @@
   font-size: 1.2rem;
 }
 
-.footer-instagram::before {
-  content: '📸';
+.footer-facebook::before {
+  content: '📘';
   position: absolute;
   left: 0;
   top: 50%;

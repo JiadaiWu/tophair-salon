@@ -4,21 +4,21 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // 发型师邮箱配置
 const stylistEmails = {
-    '1': 'jwu747@aucklanduni.ac.nz',
-    '2': 'jwu747@aucklanduni.ac.nz',
-    '3': 'jwu747@aucklanduni.ac.nz',
-    '4': 'jwu747@aucklanduni.ac.nz',
+    '1': 'tophair777@gmail.com',
+    '2': 'tophair777@gmail.com',
+    '3': 'tophair777@gmail.com',
+    '4': 'tophair777@gmail.com',
 };
 
 // 获取服务类型名称
 const getServiceName = (service) => {
     const serviceMap = {
-        'haircut': '剪发 / Haircut',
-        'color': '染发 / Hair Color',
-        'perm': '烫发 / Perm',
-        'cut-color': '剪发+染发 / Cut + Color',
-        'cut-perm': '剪发+烫发 / Cut + Perm',
-        'others': '其他服务 / Other Services'
+        'haircut': '剪发',
+        'color': '染发',
+        'perm': '烫发',
+        'cut-color': '剪发+染发',
+        'cut-perm': '剪发+烫发',
+        'others': '其他服务'
     };
     return serviceMap[service] || service;
 };
@@ -26,21 +26,21 @@ const getServiceName = (service) => {
 // 获取门店位置名称
 const getLocationName = (location) => {
     const locationMap = {
-        '1': 'City店 (Queen Street)',
-        '2': '北岸店 (North Shore)',
-        '3': 'newmarket店 (Newmarket)',
-        '4': 'dominion Rd店 (Dominion Road)'
+        '1': 'City店',
+        '2': '北岸店',
+        '3': 'newmarket店',
+        '4': 'dominion Rd店'
     };
-    return locationMap[location] || `Store ${location}`;
+    return locationMap[location] || `门店${location}`;
 };
 
-// 转换时间为12小时制
+// 转换时间为12小时制（中文格式）
 const convertTo12Hour = (time24) => {
     const [hours, minutes] = time24.split(':');
     const hour = parseInt(hours);
-    const ampm = hour >= 12 ? 'PM' : 'AM';
-    const hour12 = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
-    return `${hour12}:${minutes} ${ampm}`;
+    const ampm = hour >= 12 ? '下午' : '上午';
+    const hour12 = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour === 12 ? 12 : hour;
+    return `${ampm}${hour12}:${minutes}`;
 };
 
 // 发送预约通知邮件
@@ -48,16 +48,8 @@ const sendBookingNotification = async(appointmentData) => {
     try {
         console.log('Start sending email notification via Resend...');
 
-        // 格式化日期 - 英文版
-        const appointmentDate = new Date(appointmentData.appointmentDate);
-        const formattedDateEN = appointmentDate.toLocaleDateString('en-NZ', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-
         // 格式化日期 - 中文版
+        const appointmentDate = new Date(appointmentData.appointmentDate);
         const formattedDateCN = appointmentDate.toLocaleDateString('zh-CN', {
             weekday: 'long',
             year: 'numeric',
@@ -67,29 +59,8 @@ const sendBookingNotification = async(appointmentData) => {
 
         const formattedTime12 = convertTo12Hour(appointmentData.appointmentTime);
 
-        // 创建邮件内容 - 双语版本
-        const emailContent = `🎉 NEW BOOKING NOTIFICATION - TOP HAIR ${getLocationName(appointmentData.location)}
-────────────────────
-
-📋 BOOKING DETAILS
-────────────────────
-
-👤 Customer Name: ${appointmentData.customerName}
-📞 Phone Number: ${appointmentData.phone}
-📧 Email Address: ${appointmentData.email}
-✂️ Service Requested: ${getServiceName(appointmentData.service)}
-📍 Location: ${getLocationName(appointmentData.location)}
-📅 Appointment Date: ${formattedDateEN}
-⏰ Appointment Time: ${formattedTime12}
-📝 Customer Notes: ${appointmentData.notes || 'No special requirements'}
-
-📞 ACTION REQUIRED
-────────────────────
-Please contact the customer as soon as possible to confirm the appointment.
-
-════════════════════
-
-📅 新预约通知 - TOP HAIR ${getLocationName(appointmentData.location)}
+        // 创建邮件内容 - 仅中文版本
+        const emailContent = `📅 新预约通知 - TOP HAIR ${getLocationName(appointmentData.location)}
 ────────────────────
 
 📋 预约详情
@@ -112,7 +83,7 @@ Please contact the customer as soon as possible to confirm the appointment.
         const { data, error } = await resend.emails.send({
             from: 'TOP HAIR Booking <onboarding@resend.dev>',
             to: [stylistEmails[appointmentData.location]],
-            subject: `🎉 New Booking - ${getLocationName(appointmentData.location)} - ${appointmentData.customerName} - ${formattedDateEN}`,
+            subject: `🎉 新预约 - ${getLocationName(appointmentData.location)} - ${appointmentData.customerName} - ${formattedDateCN}`,
             text: emailContent,
         });
 
@@ -137,16 +108,8 @@ const sendCancellationNotification = async (appointmentData) => {
     try {
         console.log('Sending cancellation notification via Resend...');
 
-        // 格式化日期 - 英文版
-        const appointmentDate = new Date(appointmentData.appointmentDate);
-        const formattedDateEN = appointmentDate.toLocaleDateString('en-NZ', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-
         // 格式化日期 - 中文版
+        const appointmentDate = new Date(appointmentData.appointmentDate);
         const formattedDateCN = appointmentDate.toLocaleDateString('zh-CN', {
             weekday: 'long',
             year: 'numeric',
@@ -156,29 +119,8 @@ const sendCancellationNotification = async (appointmentData) => {
 
         const formattedTime12 = convertTo12Hour(appointmentData.appointmentTime);
 
-        // 创建取消邮件内容
-        const emailContent = `❌ APPOINTMENT CANCELLATION - TOP HAIR ${getLocationName(appointmentData.location)}
-────────────────────
-
-📋 CANCELLED APPOINTMENT DETAILS
-────────────────────
-
-👤 Customer Name: ${appointmentData.customerName}
-📞 Phone Number: ${appointmentData.phone}
-📧 Email Address: ${appointmentData.email}
-✂️ Service Requested: ${getServiceName(appointmentData.service)}
-📍 Location: ${getLocationName(appointmentData.location)}
-📅 Appointment Date: ${formattedDateEN}
-⏰ Appointment Time: ${formattedTime12}
-📝 Customer Notes: ${appointmentData.notes || 'No special requirements'}
-
-⚠️ ACTION REQUIRED
-────────────────────
-This appointment has been cancelled by the customer. Please update your schedule accordingly.
-
-════════════════════
-
-❌ 预约取消通知 - TOP HAIR ${getLocationName(appointmentData.location)}
+        // 创建取消邮件内容 - 仅中文版本
+        const emailContent = `❌ 预约取消通知 - TOP HAIR ${getLocationName(appointmentData.location)}
 ────────────────────
 
 📋 已取消预约详情
@@ -201,7 +143,7 @@ This appointment has been cancelled by the customer. Please update your schedule
         const { data, error } = await resend.emails.send({
             from: 'TOP HAIR Booking <onboarding@resend.dev>',
             to: [stylistEmails[appointmentData.location]],
-            subject: `❌ Appointment Cancelled - ${getLocationName(appointmentData.location)} - ${appointmentData.customerName} - ${formattedDateEN}`,
+            subject: `❌ 预约取消 - ${getLocationName(appointmentData.location)} - ${appointmentData.customerName} - ${formattedDateCN}`,
             text: emailContent,
         });
 
